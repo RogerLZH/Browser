@@ -30,33 +30,6 @@ class MainWindow(QMainWindow):
         # 添加浏览器到窗口中
         self.setCentralWidget(self.browser)
 
-
-        ###使用QToolBar创建导航栏，并使用QAction创建按钮
-        # 添加导航栏
-        navigation_bar = QToolBar('Navigation')
-        # 设定图标的大小
-        navigation_bar.setIconSize(QSize(16, 16))
-        self.addToolBar(navigation_bar)
-
-        #QAction类提供了抽象的用户界面action，这些action可以被放置在窗口部件中
-        # 添加前进、后退、停止加载和刷新的按钮
-        back_button = QAction(QIcon('icons/back.png'), 'Back', self)
-        next_button = QAction(QIcon('icons/next.png'), 'Forward', self)
-        stop_button = QAction(QIcon('icons/cross.png'), 'stop', self)
-        reload_button = QAction(QIcon('icons/renew.png'), 'reload', self)
-
-        back_button.triggered.connect(self.browser.back)
-        next_button.triggered.connect(self.browser.forward)
-        stop_button.triggered.connect(self.browser.stop)
-        reload_button.triggered.connect(self.browser.reload)
-
-        # 将按钮添加到导航栏上
-        navigation_bar.addAction(back_button)
-        navigation_bar.addAction(next_button)
-        navigation_bar.addAction(stop_button)
-        navigation_bar.addAction(reload_button)
-
-
 # 创建应用
 app = QApplication(sys.argv)
 # 创建主窗口
